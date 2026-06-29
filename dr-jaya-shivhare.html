@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Jaya V Shivhare — Homoeopathic Healer, Nagpur</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --ink:#0d0f0e;
+  --ink2:#1a1d1b;
+  --ink3:#252926;
+  --sage:#2e5c47;
+  --sage2:#3d7a5f;
+  --sage3:#5aa87e;
+  --gold:#c9a84c;
+  --gold2:#e2c375;
+  --cream:#f5f1e8;
+  --cream2:#ede8dc;
+  --cream3:#d4cfc3;
+  --mist:rgba(255,255,255,0.06);
+  --mist2:rgba(255,255,255,0.10);
+  --mist3:rgba(255,255,255,0.16);
+  --shadow:rgba(0,0,0,0.5);
+  --r:14px;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+
+[data-theme="light"]{
+  --ink:#f5f1e8;--ink2:#ede8dc;--ink3:#d4cfc3;
+  --mist:rgba(0,0,0,0.04);--mist2:rgba(0,0,0,0.07);--mist3:rgba(0,0,0,0.12);
+  --shadow:rgba(0,0,0,0.15);
+}
+
+html{scroll-behavior:smooth}
+body{
+  background:#0d0f0e;
+  color:#e8e4da;
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* LOADER */
+#loader{
+  position:fixed;inset:0;z-index:9999;
+  background:#0d0f0e;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  transition:opacity .8s ease, visibility .8s ease;
+}
+#loader.hide{opacity:0;visibility:hidden}
+.loader-symbol{
+  font-family:var(--serif);font-size:4rem;
+  color:var(--sage3);
+  letter-spacing:.1em;
+  animation:pulse 2s ease-in-out infinite;
+}
+.loader-line{
+  width:200px;height:1px;
+  background:var(--ink3);
+  margin-top:2rem;overflow:hidden;
+}
+.loader-fill{
+  height:100%;width:0%;
+  background:linear-gradient(90deg,var(--sage),var(--gold));
+  transition:width 2.2s cubic-bezier(.4,0,.2,1);
+}
+.loader-text{
+  margin-top:1rem;
+  font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;
+  color:#4a5248;
+}
+@keyframes pulse{0%,100%{opacity:.6}50%{opacity:1}}
+
+/* CURSOR */
+.cursor{
+  position:fixed;width:8px;height:8px;
+  background:var(--sage3);border-radius:50%;
+  pointer-events:none;z-index:9998;
+  transform:translate(-50%,-50%);
+  transition:transform .1s ease;
+}
+.cursor-ring{
+  position:fixed;width:36px;height:36px;
+  border:1px solid rgba(90,168,126,.4);
+  border-radius:50%;pointer-events:none;z-index:9997;
+  transform:translate(-50%,-50%);
+  transition:all .25s cubic-bezier(.4,0,.2,1);
+}
+.cursor-ring.hover{width:56px;height:56px;border-color:var(--gold);border-width:1.5px}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.25rem 3rem;
+  transition:background .4s ease,backdrop-filter .4s ease;
+}
+nav.scrolled{
+  background:rgba(13,15,14,.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav-logo{
+  font-family:var(--serif);font-size:1.3rem;font-weight:500;
+  color:#e8e4da;text-decoration:none;letter-spacing:.02em;
+}
+.nav-logo span{color:var(--sage3)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{
+  text-decoration:none;color:rgba(232,228,218,.6);
+  font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;
+  transition:color .3s;
+}
+.nav-links a:hover{color:var(--sage3)}
+.nav-cta{
+  background:var(--sage);color:#e8e4da;
+  border:none;padding:.6rem 1.5rem;border-radius:40px;
+  font-family:var(--sans);font-size:.8rem;letter-spacing:.08em;
+  cursor:pointer;transition:all .3s;text-decoration:none;
+  display:inline-block;
+}
+.nav-cta:hover{background:var(--sage2);transform:translateY(-1px)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:#e8e4da;transition:.3s}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  padding:8rem 2rem 4rem;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 100%, rgba(46,92,71,.35) 0%, transparent 70%),
+             radial-gradient(ellipse 40% 40% at 80% 20%, rgba(201,168,76,.08) 0%, transparent 60%);
+}
+.hero-particles{position:absolute;inset:0;overflow:hidden}
+.particle{
+  position:absolute;
+  width:2px;height:2px;
+  background:var(--sage3);
+  border-radius:50%;
+  animation:float linear infinite;
+  opacity:0;
+}
+@keyframes float{
+  0%{transform:translateY(100vh) translateX(0);opacity:0}
+  10%{opacity:.6}
+  90%{opacity:.4}
+  100%{transform:translateY(-20px) translateX(30px);opacity:0}
+}
+.hero-eyebrow{
+  font-size:.72rem;letter-spacing:.35em;text-transform:uppercase;
+  color:var(--sage3);margin-bottom:1.5rem;
+  opacity:0;transform:translateY(20px);
+  animation:fadeUp .8s .3s forwards;
+}
+.hero-title{
+  font-family:var(--serif);font-size:clamp(3.5rem,8vw,7.5rem);
+  font-weight:300;line-height:1.05;text-align:center;
+  color:#f0ece2;letter-spacing:-.01em;
+  opacity:0;transform:translateY(30px);
+  animation:fadeUp .9s .5s forwards;
+}
+.hero-title em{font-style:italic;color:var(--sage3)}
+.hero-title .gold{color:var(--gold2)}
+.hero-sub{
+  font-family:var(--serif);font-size:clamp(1rem,2vw,1.3rem);
+  font-weight:300;font-style:italic;
+  color:rgba(232,228,218,.55);text-align:center;
+  max-width:540px;margin-top:1.5rem;
+  opacity:0;transform:translateY(20px);
+  animation:fadeUp .8s .7s forwards;
+}
+.hero-ctas{
+  display:flex;gap:1rem;margin-top:3rem;flex-wrap:wrap;justify-content:center;
+  opacity:0;transform:translateY(20px);
+  animation:fadeUp .8s .9s forwards;
+}
+.btn-primary{
+  background:var(--sage);color:#fff;
+  padding:.9rem 2.5rem;border-radius:40px;
+  font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;
+  text-decoration:none;transition:all .35s;border:none;cursor:pointer;
+  position:relative;overflow:hidden;
+}
+.btn-primary::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,transparent 40%,rgba(255,255,255,.15));
+  opacity:0;transition:.3s;
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 20px 60px rgba(46,92,71,.5)}
+.btn-primary:hover::before{opacity:1}
+.btn-ghost{
+  border:1px solid rgba(255,255,255,.2);
+  color:rgba(232,228,218,.8);
+  padding:.9rem 2.5rem;border-radius:40px;
+  font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;
+  text-decoration:none;transition:all .35s;background:transparent;cursor:pointer;
+}
+.btn-ghost:hover{border-color:var(--sage3);color:var(--sage3);transform:translateY(-3px)}
+.hero-stats{
+  display:flex;gap:4rem;margin-top:5rem;flex-wrap:wrap;justify-content:center;
+  opacity:0;animation:fadeUp .8s 1.1s forwards;
+}
+.stat{text-align:center}
+.stat-num{
+  font-family:var(--serif);font-size:3rem;font-weight:300;
+  color:var(--sage3);line-height:1;display:block;
+}
+.stat-label{
+  font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(232,228,218,.4);margin-top:.4rem;display:block;
+}
+.hero-scroll{
+  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  color:rgba(232,228,218,.3);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+  animation:fadeUp .8s 1.3s forwards;opacity:0;
+}
+.scroll-line{
+  width:1px;height:50px;
+  background:linear-gradient(to bottom,var(--sage3),transparent);
+  animation:scrollAnim 2s ease-in-out infinite;
+}
+@keyframes scrollAnim{0%,100%{opacity:.4;transform:scaleY(.5);transform-origin:top}50%{opacity:1;transform:scaleY(1)}}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+
+/* MARQUEE */
+.marquee-bar{
+  padding:1.2rem 0;
+  background:rgba(255,255,255,.03);
+  border-top:1px solid rgba(255,255,255,.05);
+  border-bottom:1px solid rgba(255,255,255,.05);
+  overflow:hidden;
+}
+.marquee-track{
+  display:flex;gap:3rem;
+  animation:marquee 30s linear infinite;
+  width:max-content;
+}
+.marquee-item{
+  display:flex;align-items:center;gap:1rem;
+  font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(232,228,218,.35);white-space:nowrap;
+}
+.marquee-dot{width:4px;height:4px;background:var(--sage3);border-radius:50%}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+section{padding:7rem 2rem}
+.container{max-width:1200px;margin:0 auto}
+.section-eyebrow{
+  font-size:.7rem;letter-spacing:.35em;text-transform:uppercase;
+  color:var(--sage3);margin-bottom:1.25rem;
+}
+.section-title{
+  font-family:var(--serif);font-size:clamp(2.5rem,5vw,4.5rem);
+  font-weight:300;line-height:1.1;color:#f0ece2;
+}
+.section-title em{font-style:italic;color:var(--sage3)}
+
+/* ABOUT */
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:5rem;align-items:center;margin-top:5rem;
+}
+.about-portrait{
+  position:relative;
+}
+.portrait-frame{
+  aspect-ratio:3/4;
+  background:linear-gradient(135deg,var(--ink2),var(--ink3));
+  border-radius:120px 20px 120px 20px;
+  border:1px solid rgba(255,255,255,.06);
+  overflow:hidden;
+  position:relative;
+}
+.portrait-inner{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:1rem;
+}
+.portrait-monogram{
+  font-family:var(--serif);font-size:8rem;font-weight:300;
+  color:var(--sage3);opacity:.15;letter-spacing:-.05em;
+  line-height:1;
+}
+.portrait-badge-float{
+  position:absolute;bottom:2rem;right:-1.5rem;
+  background:rgba(13,15,14,.9);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:16px;padding:1.25rem 1.5rem;
+  backdrop-filter:blur(10px);
+}
+.badge-num{
+  font-family:var(--serif);font-size:2.5rem;font-weight:300;
+  color:var(--gold2);line-height:1;
+}
+.badge-text{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(232,228,218,.5);margin-top:.3rem}
+.about-content p{
+  font-family:var(--serif);font-size:1.15rem;font-weight:300;
+  color:rgba(232,228,218,.7);line-height:1.9;margin-bottom:1.5rem;
+}
+.about-highlights{
+  display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2.5rem;
+}
+.highlight-card{
+  background:var(--mist);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:14px;padding:1.25rem;
+  transition:all .3s;
+}
+.highlight-card:hover{background:var(--mist2);border-color:rgba(90,168,126,.3);transform:translateY(-2px)}
+.hc-icon{font-size:1.4rem;margin-bottom:.6rem;color:var(--sage3)}
+.hc-title{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(232,228,218,.5);margin-bottom:.3rem}
+.hc-value{font-family:var(--serif);font-size:1.4rem;font-weight:400;color:#e8e4da}
+
+/* SERVICES */
+.services{background:var(--ink2)}
+.services-intro{
+  display:flex;justify-content:space-between;
+  align-items:flex-end;gap:2rem;flex-wrap:wrap;
+}
+.services-desc{
+  font-family:var(--serif);font-size:1.1rem;font-weight:300;
+  color:rgba(232,228,218,.55);max-width:400px;line-height:1.8;
+}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.5px;margin-top:4rem;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:20px;overflow:hidden;
+}
+.service-card{
+  background:var(--ink2);
+  padding:2.5rem;
+  transition:all .4s;
+  cursor:default;
+  position:relative;overflow:hidden;
+}
+.service-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(46,92,71,.12),transparent);
+  opacity:0;transition:.4s;
+}
+.service-card:hover{background:var(--ink3)}
+.service-card:hover::before{opacity:1}
+.sc-num{
+  font-family:var(--serif);font-size:.85rem;
+  color:var(--sage3);opacity:.6;letter-spacing:.2em;
+  margin-bottom:1.2rem;display:block;
+}
+.sc-icon{
+  width:48px;height:48px;
+  background:linear-gradient(135deg,rgba(46,92,71,.3),rgba(46,92,71,.1));
+  border:1px solid rgba(46,92,71,.4);
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;margin-bottom:1.5rem;
+  transition:all .4s;
+}
+.service-card:hover .sc-icon{background:rgba(46,92,71,.5);transform:scale(1.05)}
+.sc-title{
+  font-family:var(--serif);font-size:1.35rem;font-weight:400;
+  color:#e8e4da;margin-bottom:.75rem;
+}
+.sc-desc{font-size:.85rem;color:rgba(232,228,218,.45);line-height:1.7}
+.sc-arrow{
+  display:inline-block;margin-top:1.5rem;
+  font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--sage3);opacity:0;transform:translateX(-8px);
+  transition:all .35s;
+}
+.service-card:hover .sc-arrow{opacity:1;transform:translateX(0)}
+
+/* PROCESS */
+.process{position:relative}
+.process-line{
+  position:absolute;left:50%;top:10rem;bottom:4rem;
+  width:1px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.08),transparent);
+  transform:translateX(-50%);
+}
+.process-steps{
+  display:flex;flex-direction:column;gap:5rem;
+  max-width:700px;margin:5rem auto 0;
+}
+.process-step{
+  display:grid;grid-template-columns:1fr 80px 1fr;
+  gap:1rem;align-items:center;
+}
+.process-step:nth-child(even) .ps-content{grid-column:3;grid-row:1}
+.process-step:nth-child(even) .ps-node{grid-column:2;grid-row:1}
+.ps-node{
+  width:56px;height:56px;
+  background:var(--ink2);
+  border:1px solid rgba(90,168,126,.3);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:1.2rem;
+  color:var(--sage3);margin:0 auto;
+  position:relative;z-index:1;
+  transition:all .4s;
+}
+.ps-node::after{
+  content:'';position:absolute;inset:-6px;
+  border-radius:50%;border:1px solid rgba(90,168,126,.1);
+  animation:ringPulse 3s ease-in-out infinite;
+}
+@keyframes ringPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.15);opacity:0}}
+.ps-content{
+  background:var(--mist);
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:16px;padding:1.75rem;
+}
+.ps-num{
+  font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--sage3);margin-bottom:.6rem;
+}
+.ps-title{
+  font-family:var(--serif);font-size:1.3rem;
+  color:#e8e4da;margin-bottom:.5rem;
+}
+.ps-desc{font-size:.85rem;color:rgba(232,228,218,.45);line-height:1.7}
+
+/* TESTIMONIALS */
+.testimonials{background:linear-gradient(135deg,var(--ink2),#121714)}
+.testimonials-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:1.5rem;margin-top:4rem;
+}
+.testimonial-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:20px;padding:2rem;
+  transition:all .4s;position:relative;
+}
+.testimonial-card::before{
+  content:'\201C';
+  position:absolute;top:1rem;right:1.5rem;
+  font-family:var(--serif);font-size:5rem;
+  color:var(--sage);opacity:.15;line-height:1;
+}
+.testimonial-card:hover{border-color:rgba(90,168,126,.2);transform:translateY(-4px);background:rgba(255,255,255,.06)}
+.tc-stars{color:var(--gold);font-size:.9rem;letter-spacing:.1em;margin-bottom:1rem}
+.tc-text{
+  font-family:var(--serif);font-size:1.05rem;font-weight:300;
+  color:rgba(232,228,218,.75);line-height:1.8;margin-bottom:1.5rem;
+}
+.tc-author{display:flex;align-items:center;gap:.75rem}
+.tc-avatar{
+  width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,var(--sage),var(--sage2));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:.95rem;color:#fff;font-weight:500;
+}
+.tc-name{font-size:.85rem;font-weight:500;color:#e8e4da}
+.tc-location{font-size:.75rem;color:rgba(232,228,218,.35);letter-spacing:.05em}
+
+/* TEAM */
+.team-card{
+  max-width:600px;margin:4rem auto 0;
+  background:var(--mist);border:1px solid rgba(255,255,255,.07);
+  border-radius:24px;padding:3rem;
+  display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:start;
+}
+.team-avatar{
+  width:100px;height:100px;border-radius:50%;
+  background:linear-gradient(135deg,var(--sage),var(--sage2));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:2rem;color:#fff;
+  border:3px solid rgba(90,168,126,.3);
+  flex-shrink:0;
+}
+.team-name{font-family:var(--serif);font-size:1.6rem;font-weight:400;color:#e8e4da;margin-bottom:.3rem}
+.team-role{font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--sage3);margin-bottom:1rem}
+.team-bio{font-size:.9rem;color:rgba(232,228,218,.55);line-height:1.8;margin-bottom:1.5rem}
+.team-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.tag{
+  font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:.35rem .75rem;border-radius:20px;
+  background:rgba(46,92,71,.2);
+  border:1px solid rgba(46,92,71,.4);
+  color:var(--sage3);
+}
+.team-awards{
+  margin-top:1.5rem;padding-top:1.5rem;
+  border-top:1px solid rgba(255,255,255,.06);
+  display:flex;align-items:center;gap:.75rem;
+}
+.award-badge{
+  background:linear-gradient(135deg,rgba(201,168,76,.2),rgba(201,168,76,.05));
+  border:1px solid rgba(201,168,76,.3);
+  border-radius:10px;padding:.5rem .85rem;
+  font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gold2);
+}
+
+/* PRICING */
+.pricing{background:var(--ink2)}
+.pricing-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.5rem;margin-top:4rem;
+}
+.pricing-card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:20px;padding:2.5rem;
+  transition:all .4s;position:relative;overflow:hidden;
+}
+.pricing-card.featured{
+  background:linear-gradient(135deg,rgba(46,92,71,.2),rgba(46,92,71,.05));
+  border-color:rgba(90,168,126,.35);
+}
+.pc-badge{
+  display:inline-block;margin-bottom:1.5rem;
+  font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;
+  padding:.3rem .8rem;border-radius:20px;
+  background:rgba(90,168,126,.15);border:1px solid rgba(90,168,126,.3);
+  color:var(--sage3);
+}
+.pc-title{font-family:var(--serif);font-size:1.6rem;font-weight:400;color:#e8e4da;margin-bottom:.5rem}
+.pc-price{
+  display:flex;align-items:baseline;gap:.3rem;
+  margin:1.25rem 0;
+}
+.pc-currency{font-family:var(--serif);font-size:1.5rem;color:var(--sage3)}
+.pc-amount{font-family:var(--serif);font-size:3.5rem;font-weight:300;color:#e8e4da;line-height:1}
+.pc-unit{font-size:.8rem;color:rgba(232,228,218,.35);letter-spacing:.1em}
+.pc-features{list-style:none;margin:1.5rem 0}
+.pc-features li{
+  font-size:.88rem;color:rgba(232,228,218,.6);
+  padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.04);
+  display:flex;align-items:center;gap:.6rem;
+}
+.pc-features li::before{content:'✓';color:var(--sage3);font-size:.8rem;flex-shrink:0}
+.pricing-cta{
+  display:block;text-align:center;
+  padding:.85rem;border-radius:40px;
+  font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;
+  text-decoration:none;transition:all .3s;margin-top:1.5rem;
+  border:1px solid rgba(255,255,255,.15);color:rgba(232,228,218,.7);
+}
+.pricing-cta:hover{border-color:var(--sage3);color:var(--sage3)}
+.pricing-card.featured .pricing-cta{
+  background:var(--sage);color:#fff;border-color:var(--sage);
+}
+.pricing-card.featured .pricing-cta:hover{background:var(--sage2)}
+
+/* FAQ */
+.faq-list{max-width:720px;margin:4rem auto 0}
+.faq-item{
+  border-bottom:1px solid rgba(255,255,255,.06);
+  overflow:hidden;
+}
+.faq-q{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.5rem 0;cursor:pointer;
+  font-family:var(--serif);font-size:1.1rem;font-weight:400;
+  color:rgba(232,228,218,.85);gap:1rem;
+  transition:color .3s;
+}
+.faq-q:hover{color:var(--sage3)}
+.faq-icon{
+  flex-shrink:0;width:28px;height:28px;
+  border:1px solid rgba(255,255,255,.15);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;color:rgba(232,228,218,.4);
+  transition:all .35s;
+}
+.faq-item.open .faq-icon{background:rgba(46,92,71,.3);border-color:var(--sage3);color:var(--sage3);transform:rotate(45deg)}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .5s cubic-bezier(.4,0,.2,1);
+}
+.faq-a-inner{
+  padding:0 0 1.5rem;
+  font-size:.92rem;color:rgba(232,228,218,.5);line-height:1.8;
+}
+.faq-item.open .faq-a{max-height:300px}
+
+/* CONTACT */
+.contact{background:var(--ink2)}
+.contact-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:5rem;align-items:start;margin-top:4rem;
+}
+.contact-info-item{
+  display:flex;gap:1.25rem;align-items:flex-start;margin-bottom:2rem;
+}
+.ci-icon{
+  width:44px;height:44px;flex-shrink:0;
+  background:rgba(46,92,71,.15);
+  border:1px solid rgba(46,92,71,.3);
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+}
+.ci-label{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(232,228,218,.35);margin-bottom:.25rem}
+.ci-value{font-family:var(--serif);font-size:1.05rem;color:#e8e4da}
+.contact-form{
+  background:var(--mist);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:20px;padding:2.5rem;
+}
+.form-title{font-family:var(--serif);font-size:1.6rem;font-weight:400;color:#e8e4da;margin-bottom:2rem}
+.form-group{margin-bottom:1.25rem}
+.form-label{
+  display:block;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(232,228,218,.4);margin-bottom:.5rem;
+}
+.form-input,.form-textarea,.form-select{
+  width:100%;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:10px;
+  padding:.85rem 1rem;
+  color:#e8e4da;font-family:var(--sans);font-size:.92rem;
+  transition:all .3s;outline:none;
+  appearance:none;
+}
+.form-input:focus,.form-textarea:focus,.form-select:focus{
+  border-color:rgba(90,168,126,.5);
+  background:rgba(255,255,255,.06);
+  box-shadow:0 0 0 3px rgba(46,92,71,.15);
+}
+.form-textarea{min-height:120px;resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-submit{
+  width:100%;padding:1rem;border-radius:40px;border:none;
+  background:var(--sage);color:#fff;
+  font-family:var(--sans);font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;
+  cursor:pointer;transition:all .35s;margin-top:.5rem;
+}
+.form-submit:hover{background:var(--sage2);transform:translateY(-2px);box-shadow:0 15px 40px rgba(46,92,71,.4)}
+.hours-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:2rem;
+}
+.hour-card{
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);
+  border-radius:12px;padding:1rem;
+}
+.hour-day{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sage3);margin-bottom:.3rem}
+.hour-time{font-family:var(--serif);font-size:.92rem;color:rgba(232,228,218,.65)}
+
+/* FOOTER */
+footer{
+  background:#080a09;
+  border-top:1px solid rgba(255,255,255,.05);
+  padding:4rem 2rem 2rem;
+}
+.footer-grid{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:3rem;max-width:1200px;margin:0 auto;
+}
+.footer-brand{font-family:var(--serif);font-size:1.5rem;font-weight:300;color:#e8e4da;margin-bottom:1rem}
+.footer-brand span{color:var(--sage3)}
+.footer-desc{font-size:.85rem;color:rgba(232,228,218,.35);line-height:1.7;max-width:260px}
+.footer-heading{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(232,228,218,.3);margin-bottom:1rem}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.footer-links a{font-size:.88rem;color:rgba(232,228,218,.45);text-decoration:none;transition:color .3s}
+.footer-links a:hover{color:var(--sage3)}
+.footer-bottom{
+  max-width:1200px;margin:3rem auto 0;
+  padding-top:1.5rem;
+  border-top:1px solid rgba(255,255,255,.04);
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;
+}
+.footer-copy{font-size:.78rem;color:rgba(232,228,218,.25)}
+.footer-reg{font-size:.78rem;color:rgba(232,228,218,.2);text-align:right}
+
+/* WHATSAPP */
+.whatsapp-float{
+  position:fixed;bottom:2rem;right:2rem;z-index:500;
+  width:54px;height:54px;border-radius:50%;
+  background:#25D366;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;text-decoration:none;
+  box-shadow:0 8px 30px rgba(37,211,102,.35);
+  transition:all .35s;
+  animation:fadeUp .8s 2s forwards;opacity:0;
+}
+.whatsapp-float:hover{transform:scale(1.1);box-shadow:0 12px 40px rgba(37,211,102,.5)}
+
+/* THEME TOGGLE */
+.theme-toggle{
+  position:fixed;top:50%;right:1.5rem;
+  transform:translateY(-50%);
+  z-index:200;
+  background:rgba(13,15,14,.8);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:40px;
+  padding:.5rem;
+  display:flex;flex-direction:column;gap:.3rem;
+  backdrop-filter:blur(10px);
+}
+.tt-btn{
+  width:36px;height:36px;border-radius:50%;border:none;
+  background:transparent;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;transition:all .3s;color:rgba(232,228,218,.5);
+}
+.tt-btn:hover,.tt-btn.active{background:rgba(90,168,126,.2);color:var(--sage3)}
+
+/* SCROLL ANIMATIONS */
+.reveal{
+  opacity:0;transform:translateY(40px);
+  transition:opacity .8s cubic-bezier(.4,0,.2,1), transform .8s cubic-bezier(.4,0,.2,1);
+}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
+
+/* COUNTER */
+.counter{display:inline-block}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}
+  .nav-links,.nav-cta{display:none}
+  .nav-hamburger{display:flex}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .portrait-frame{max-width:300px;margin:0 auto}
+  .portrait-badge-float{right:0}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .hero-stats{gap:2rem}
+  .process-step{grid-template-columns:1fr}
+  .process-line{display:none}
+  .ps-node{margin:0}
+  .process-step:nth-child(even) .ps-content{grid-column:1;grid-row:3}
+  .form-row{grid-template-columns:1fr}
+  .team-card{grid-template-columns:1fr;text-align:center}
+  .team-avatar{margin:0 auto}
+  .team-tags{justify-content:center}
+  .hours-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  section{padding:4rem 1.25rem}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .footer-reg{text-align:center}
+  .about-highlights{grid-template-columns:1fr}
+  .theme-toggle{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Loader -->
+<div id="loader">
+  <div class="loader-symbol">✦ JVS</div>
+  <div class="loader-line"><div class="loader-fill" id="loaderFill"></div></div>
+  <div class="loader-text">Healing begins here</div>
+</div>
+
+<!-- Custom cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- WhatsApp float -->
+<a href="tel:+91" class="whatsapp-float" aria-label="Call clinic" title="Call Shivhare's Clinic">📞</a>
+
+<!-- Theme toggle -->
+<div class="theme-toggle">
+  <button class="tt-btn active" onclick="setTheme('dark')" title="Dark mode">🌙</button>
+  <button class="tt-btn" onclick="setTheme('light')" title="Light mode">☀️</button>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">Dr. <span>Jaya</span> Shivhare</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#testimonials">Stories</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:+91" class="nav-cta">Book Appointment</a>
+  <div class="nav-hamburger" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-particles" id="particles"></div>
+  <div style="position:relative;z-index:1;text-align:center;max-width:900px">
+    <p class="hero-eyebrow">Homoeopathic Medicine · Nagpur, Maharashtra</p>
+    <h1 class="hero-title">
+      Healing through<br>
+      <em>nature's intelligence</em>
+    </h1>
+    <p class="hero-sub">Dr. Jaya V Shivhare — BHMS — bringing 15 years of gentle, holistic homoeopathic care to families across Nagpur</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Book a Consultation</a>
+      <a href="#services" class="btn-ghost">Explore Treatments</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num counter" data-target="15">0</span><span class="stat-num">+</span>
+        <span class="stat-label">Years of practice</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num counter" data-target="29">0</span><span class="stat-num">+</span>
+        <span class="stat-label">Treatments offered</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num counter" data-target="500">0</span><span class="stat-num">+</span>
+        <span class="stat-label">Patients healed</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="marquee-dot"></span> Acne &amp; Skin Care</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Chronic Allergies</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Migraine Relief</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Insomnia Treatment</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Gynaecological Issues</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Piles Treatment</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Digestive Disorders</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Child Health</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Immunity Building</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Stress &amp; Anxiety</span>
+    <!-- repeat for seamless loop -->
+    <span class="marquee-item"><span class="marquee-dot"></span> Acne &amp; Skin Care</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Chronic Allergies</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Migraine Relief</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Insomnia Treatment</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Gynaecological Issues</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Piles Treatment</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Digestive Disorders</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Child Health</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Immunity Building</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Stress &amp; Anxiety</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-portrait reveal">
+        <div class="portrait-frame">
+          <div class="portrait-inner">
+            <div class="portrait-monogram">JVS</div>
+            <div style="text-align:center;color:rgba(232,228,218,.3);font-family:var(--serif);font-size:.95rem;font-style:italic">
+              Narayan Shree Homoeopathic<br>Medical College, Bhopal
+            </div>
+          </div>
+        </div>
+        <div class="portrait-badge-float">
+          <div class="badge-num">2012</div>
+          <div class="badge-text">BHMS Graduate</div>
+        </div>
+      </div>
+      <div class="about-content">
+        <p class="section-eyebrow reveal">About the Doctor</p>
+        <h2 class="section-title reveal reveal-delay-1">A healer shaped by <em>patience</em> and precision</h2>
+        <p class="reveal reveal-delay-2" style="margin-top:1.5rem;font-family:var(--serif);font-size:1.15rem;font-weight:300;color:rgba(232,228,218,.7);line-height:1.9">
+          Dr. Jaya V Shivhare completed her Bachelor of Homoeopathic Medicine &amp; Surgery (BHMS) at Narayan Shree Homoeopathic Medical College, Bhopal in 2011–12. She has since dedicated herself to practising homoeopathy the way it was envisioned — individually, holistically, and with deep empathy for each patient's unique constitution.
+        </p>
+        <p class="reveal reveal-delay-3" style="font-family:var(--serif);font-size:1.15rem;font-weight:300;color:rgba(232,228,218,.55);line-height:1.9;margin-top:1rem">
+          Based in Trimurti Nagar, Nagpur, at Shivhare's Clinic, she offers comprehensive consultations for chronic skin conditions, hormonal imbalances, migraines, piles, insomnia, and a wide spectrum of ailments that respond beautifully to homoeopathic treatment.
+        </p>
+        <div class="about-highlights reveal reveal-delay-4">
+          <div class="highlight-card">
+            <div class="hc-icon">🎓</div>
+            <div class="hc-title">Qualification</div>
+            <div class="hc-value">BHMS</div>
+          </div>
+          <div class="highlight-card">
+            <div class="hc-icon">🏛️</div>
+            <div class="hc-title">Registration</div>
+            <div class="hc-value">Mah. #70364</div>
+          </div>
+          <div class="highlight-card">
+            <div class="hc-icon">🏆</div>
+            <div class="hc-title">Recognition</div>
+            <div class="hc-value">Best Member 2012</div>
+          </div>
+          <div class="highlight-card">
+            <div class="hc-icon">📍</div>
+            <div class="hc-title">Location</div>
+            <div class="hc-value">Trimurti Nagar</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-intro">
+      <div>
+        <p class="section-eyebrow reveal">Treatments &amp; Services</p>
+        <h2 class="section-title reveal reveal-delay-1">29 specialised<br><em>treatments</em></h2>
+      </div>
+      <p class="services-desc reveal reveal-delay-2">Each treatment is tailored to the individual — homoeopathy treats the person, not the disease.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <span class="sc-num">01</span>
+        <div class="sc-icon">🌿</div>
+        <div class="sc-title">Acne &amp; Pimple Treatment</div>
+        <p class="sc-desc">Addressing the root cause — hormonal imbalances, dietary sensitivities, and constitutional factors — for lasting clear skin.</p>
+        <span class="sc-arrow">Learn more →</span>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <span class="sc-num">02</span>
+        <div class="sc-icon">😴</div>
+        <div class="sc-title">Insomnia Treatment</div>
+        <p class="sc-desc">Deep, restorative sleep through gentle homoeopathic remedies that calm the nervous system without dependency.</p>
+        <span class="sc-arrow">Learn more →</span>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <span class="sc-num">03</span>
+        <div class="sc-icon">🧠</div>
+        <div class="sc-title">Migraine &amp; Headaches</div>
+        <p class="sc-desc">Reducing frequency, intensity, and triggers of chronic migraines through constitutional homoeopathic treatment.</p>
+        <span class="sc-arrow">Learn more →</span>
+      </div>
+      <div class="service-card reveal">
+        <span class="sc-num">04</span>
+        <div class="sc-icon">🌸</div>
+        <div class="sc-title">Gynaecological Issues</div>
+        <p class="sc-desc">PCOD, menstrual irregularities, hormonal issues — treated with sensitivity and a holistic understanding of women's health.</p>
+        <span class="sc-arrow">Learn more →</span>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <span class="sc-num">05</span>
+        <div class="sc-icon">🛡️</div>
+        <div class="sc-title">Chronic Skin Allergy</div>
+        <p class="sc-desc">Eczema, urticaria, psoriasis — homoeopathy addresses the hypersensitive immune response at its source.</p>
+        <span class="sc-arrow">Learn more →</span>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <span class="sc-num">06</span>
+        <div class="sc-icon">💊</div>
+        <div class="sc-title">Piles Treatment</div>
+        <p class="sc-desc">Gentle, non-surgical management of haemorrhoids with proven homoeopathic protocols and dietary guidance.</p>
+        <span class="sc-arrow">Learn more →</span>
+      </div>
+      <div class="service-card reveal">
+        <span class="sc-num">07</span>
+        <div class="sc-icon">🍃</div>
+        <div class="sc-title">Digestive Disorders</div>
+        <p class="sc-desc">IBS, acidity, colitis, constipation — restoring gut harmony through targeted homoeopathic remedies.</p>
+        <span class="sc-arrow">Learn more →</span>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <span class="sc-num">08</span>
+        <div class="sc-icon">🧒</div>
+        <div class="sc-title">Child Health</div>
+        <p class="sc-desc">Safe, gentle remedies for children — from recurring infections to behavioural concerns — without side effects.</p>
+        <span class="sc-arrow">Learn more →</span>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <span class="sc-num">09</span>
+        <div class="sc-icon">⚡</div>
+        <div class="sc-title">Immunity Building</div>
+        <p class="sc-desc">Strengthening the body's innate healing intelligence for resilience against seasonal and chronic illnesses.</p>
+        <span class="sc-arrow">Learn more →</span>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:3rem" class="reveal">
+      <a href="#contact" class="btn-ghost" style="display:inline-block">View all 29 treatments →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="container">
+    <div style="text-align:center">
+      <p class="section-eyebrow reveal">How it works</p>
+      <h2 class="section-title reveal reveal-delay-1">The path to <em>healing</em></h2>
+    </div>
+    <div class="process-line"></div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="ps-content">
+          <div class="ps-num">Step 01</div>
+          <div class="ps-title">Initial Consultation</div>
+          <p class="ps-desc">A thorough in-person conversation about your health history, lifestyle, emotional state, and presenting complaints. This holistic intake is the foundation of homoeopathic prescribing.</p>
+        </div>
+        <div class="ps-node">①</div>
+        <div></div>
+      </div>
+      <div class="process-step reveal">
+        <div></div>
+        <div class="ps-node">②</div>
+        <div class="ps-content">
+          <div class="ps-num">Step 02</div>
+          <div class="ps-title">Constitutional Analysis</div>
+          <p class="ps-desc">Dr. Shivhare analyses your unique constitution — your physical, mental, and emotional patterns — to identify the most precisely matched homoeopathic remedy.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="ps-content">
+          <div class="ps-num">Step 03</div>
+          <div class="ps-title">Personalised Prescription</div>
+          <p class="ps-desc">A remedy is prescribed in the appropriate potency and schedule. Lifestyle and dietary guidance complements the treatment for optimal outcomes.</p>
+        </div>
+        <div class="ps-node">③</div>
+        <div></div>
+      </div>
+      <div class="process-step reveal">
+        <div></div>
+        <div class="ps-node">④</div>
+        <div class="ps-content">
+          <div class="ps-num">Step 04</div>
+          <div class="ps-title">Follow-up &amp; Refinement</div>
+          <p class="ps-desc">Regular follow-ups assess your response. The remedy is refined as your health evolves, ensuring the treatment remains precisely aligned to your current state.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div style="text-align:center">
+      <p class="section-eyebrow reveal">Patient Stories</p>
+      <h2 class="section-title reveal reveal-delay-1">What <em>healing</em> feels like</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-text">After years of struggling with severe acne and trying everything from antibiotics to expensive facials, Dr. Jaya's homoeopathic treatment cleared my skin within 4 months. The approach was so gentle and considerate.</p>
+        <div class="tc-author">
+          <div class="tc-avatar">PR</div>
+          <div>
+            <div class="tc-name">Priya R.</div>
+            <div class="tc-location">Trimurti Nagar, Nagpur</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-text">My migraines were debilitating — 3 to 4 episodes a week. Within 3 months of Dr. Shivhare's treatment, they reduced to once a month, and the intensity dropped dramatically. Life-changing.</p>
+        <div class="tc-author">
+          <div class="tc-avatar">AS</div>
+          <div>
+            <div class="tc-name">Aarav S.</div>
+            <div class="tc-location">Dharampeth, Nagpur</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-text">I came to Dr. Jaya for my daughter's recurring ear infections. Instead of repeated antibiotics, the homoeopathic treatment built her immunity so strongly that she has not had an episode in over a year.</p>
+        <div class="tc-author">
+          <div class="tc-avatar">MD</div>
+          <div>
+            <div class="tc-name">Meera D.</div>
+            <div class="tc-location">Subhash Nagar, Nagpur</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="container" style="text-align:center">
+    <p class="section-eyebrow reveal">The Practitioner</p>
+    <h2 class="section-title reveal reveal-delay-1">Meet <em>Dr. Jaya</em></h2>
+    <div class="team-card reveal reveal-delay-2">
+      <div class="team-avatar">JV</div>
+      <div>
+        <div class="team-name">Dr. Jaya V Shivhare</div>
+        <div class="team-role">BHMS · Homoeopath · Reg. #70364</div>
+        <p class="team-bio">Graduate of Narayan Shree Homoeopathic Medical College, Bhopal (2011). Registered with the Maharashtra Council of Homoeopathy since 2019. Practising homoeopathic medicine for 15 years with a special focus on chronic skin conditions, women's health, migraines, and paediatric care. Fluent in English and Hindi, offering compassionate care at Shivhare's Clinic, Trimurti Nagar, Nagpur.</p>
+        <div class="team-tags">
+          <span class="tag">Chronic Skin</span>
+          <span class="tag">Women's Health</span>
+          <span class="tag">Migraines</span>
+          <span class="tag">Child Health</span>
+          <span class="tag">Piles</span>
+          <span class="tag">Digestive</span>
+        </div>
+        <div class="team-awards">
+          <span class="award-badge">🏅 Best Member of the Year — HAEVS, 2012</span>
+          <span style="font-size:.78rem;color:rgba(232,228,218,.3)">Mah. Council of Homoeopathy certified</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div style="text-align:center">
+      <p class="section-eyebrow reveal">Consultation Fees</p>
+      <h2 class="section-title reveal reveal-delay-1">Transparent, <em>accessible</em> care</h2>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <span class="pc-badge">First Visit</span>
+        <div class="pc-title">Initial Consultation</div>
+        <div class="pc-price">
+          <span class="pc-currency">₹</span>
+          <span class="pc-amount">500</span>
+          <span class="pc-unit">/ session</span>
+        </div>
+        <ul class="pc-features">
+          <li>Comprehensive health history review</li>
+          <li>Constitutional analysis</li>
+          <li>Personalised remedy prescription</li>
+          <li>Dietary &amp; lifestyle guidance</li>
+          <li>~45–60 minute session</li>
+        </ul>
+        <a href="tel:+91" class="pricing-cta">Call to book</a>
+      </div>
+      <div class="pricing-card featured reveal reveal-delay-1">
+        <span class="pc-badge" style="background:rgba(90,168,126,.25);border-color:rgba(90,168,126,.5)">Most chosen</span>
+        <div class="pc-title">Follow-up Consultation</div>
+        <div class="pc-price">
+          <span class="pc-currency">₹</span>
+          <span class="pc-amount">300</span>
+          <span class="pc-unit">/ session</span>
+        </div>
+        <ul class="pc-features">
+          <li>Progress assessment</li>
+          <li>Remedy adjustment if needed</li>
+          <li>Ongoing lifestyle support</li>
+          <li>~20–30 minute session</li>
+          <li>Available on-call visits</li>
+        </ul>
+        <a href="tel:+91" class="pricing-cta">Call to book</a>
+      </div>
+      <div class="pricing-card reveal reveal-delay-2">
+        <span class="pc-badge">Home visits</span>
+        <div class="pc-title">On-Call Consultation</div>
+        <div class="pc-price">
+          <span class="pc-currency">₹</span>
+          <span class="pc-amount">—</span>
+          <span class="pc-unit">call for fee</span>
+        </div>
+        <ul class="pc-features">
+          <li>Doctor visits at your home</li>
+          <li>Ideal for elderly &amp; bed-ridden</li>
+          <li>Flexible scheduling</li>
+          <li>Nagpur &amp; nearby areas</li>
+          <li>Call clinic to arrange</li>
+        </ul>
+        <a href="tel:+91" class="pricing-cta">Call to enquire</a>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:.8rem;color:rgba(232,228,218,.3);margin-top:2rem" class="reveal">Fees may vary. Please call the clinic to confirm current consultation charges.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div style="text-align:center">
+      <p class="section-eyebrow reveal">Common Questions</p>
+      <h2 class="section-title reveal reveal-delay-1">What patients <em>ask</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Is homoeopathy safe for children and pregnant women?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Homoeopathic remedies are highly diluted and gentle, making them safe for children, infants, and pregnant women when prescribed by a qualified practitioner. Dr. Shivhare has extensive experience treating paediatric cases and can advise appropriately during pregnancy.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>How long does homoeopathic treatment typically take?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Duration varies with the nature and chronicity of the condition. Acute illnesses can respond within days. Chronic conditions — such as long-standing skin disease, PCOD, or migraine — may require 3–12 months of consistent treatment. Improvement is usually noticeable within the first 4–8 weeks.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Can I take homoeopathy alongside my existing medications?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">In most cases, yes. Homoeopathic remedies are non-toxic and do not chemically interact with conventional medicines. Dr. Shivhare recommends informing her of all medications you take so she can consider the complete clinical picture and advise accordingly.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>What are the clinic's consultation hours?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">The clinic operates Monday to Saturday: 9:30 AM to 3:00 PM in the morning session, and 5:30 PM to 9:00 PM in the evening session. On-call visits can be arranged separately by calling the clinic.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Where is Shivhare's Clinic located?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">The clinic is located at 52, South Ambazari Road, Subhash Nagar, Trimurti Nagar, Nagpur — opposite Netaji Subhash Chandra Bose High School. It is easily accessible by auto and private transport.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Do you offer on-call or home-visit consultations?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Dr. Shivhare offers on-call visits for patients who are unable to visit the clinic in person. Please call the clinic to check availability and arrange a suitable time for a home visit within Nagpur.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div style="text-align:center">
+      <p class="section-eyebrow reveal">Get in Touch</p>
+      <h2 class="section-title reveal reveal-delay-1">Begin your <em>healing journey</em></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="contact-info-item">
+          <div class="ci-icon">📍</div>
+          <div>
+            <div class="ci-label">Clinic Address</div>
+            <div class="ci-value">52, South Ambazari Road, Subhash Nagar,<br>Trimurti Nagar, Nagpur — opp. NSCB High School</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="ci-icon">🕐</div>
+          <div>
+            <div class="ci-label">Consultation Hours</div>
+            <div class="ci-value">Mon–Sat · 9:30 AM–3:00 PM &amp; 5:30–9:00 PM</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="ci-icon">📞</div>
+          <div>
+            <div class="ci-label">Appointment</div>
+            <div class="ci-value">Call clinic to book</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="ci-icon">🏥</div>
+          <div>
+            <div class="ci-label">Listing</div>
+            <div class="ci-value">Practo · Shivhare's Clinic, Trimurti Nagar</div>
+          </div>
+        </div>
+        <div class="hours-grid">
+          <div class="hour-card">
+            <div class="hour-day">Morning</div>
+            <div class="hour-time">9:30 AM — 3:00 PM</div>
+          </div>
+          <div class="hour-card">
+            <div class="hour-day">Evening</div>
+            <div class="hour-time">5:30 PM — 9:00 PM</div>
+          </div>
+          <div class="hour-card">
+            <div class="hour-day">Days</div>
+            <div class="hour-time">Monday to Saturday</div>
+          </div>
+          <div class="hour-card">
+            <div class="hour-day">Home Visit</div>
+            <div class="hour-time">On-call · Call to arrange</div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form reveal reveal-delay-2">
+        <div class="form-title">Send an Enquiry</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input class="form-input" type="text" placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input class="form-input" type="tel" placeholder="+91 XXXXX XXXXX">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Primary Concern</label>
+          <select class="form-select">
+            <option value="">Select a condition</option>
+            <option>Acne / Pimples</option>
+            <option>Insomnia</option>
+            <option>Migraine</option>
+            <option>Gynaecological Issues</option>
+            <option>Skin Allergy</option>
+            <option>Piles</option>
+            <option>Child Health</option>
+            <option>Digestive Issues</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message (optional)</label>
+          <textarea class="form-textarea" placeholder="Brief description of your concern or any questions..."></textarea>
+        </div>
+        <button class="form-submit" onclick="handleSubmit(this)">Request Appointment →</button>
+        <p style="text-align:center;font-size:.75rem;color:rgba(232,228,218,.25);margin-top:1rem">Your information is kept strictly confidential.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Dr. <span>Jaya</span> Shivhare</div>
+      <p class="footer-desc">Homoeopathic healing rooted in empathy, precision, and 15 years of clinical experience. Shivhare's Clinic, Trimurti Nagar, Nagpur.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Clinic</div>
+      <ul class="footer-links">
+        <li><a href="#about">About Dr. Jaya</a></li>
+        <li><a href="#services">Treatments</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#pricing">Consultation Fees</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Conditions</div>
+      <ul class="footer-links">
+        <li><a href="#services">Acne &amp; Skin</a></li>
+        <li><a href="#services">Migraines</a></li>
+        <li><a href="#services">Women's Health</a></li>
+        <li><a href="#services">Child Health</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Contact</div>
+      <ul class="footer-links">
+        <li><a href="#contact">Book Appointment</a></li>
+        <li><a href="#faq">FAQs</a></li>
+        <li><a href="#testimonials">Patient Stories</a></li>
+        <li><a href="https://www.practo.com" target="_blank" rel="noopener">View Practo Profile</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Shivhare's Clinic · Dr. Jaya V Shivhare · All rights reserved</p>
+    <p class="footer-reg">Reg. #70364 · Maharashtra Council of Homoeopathy · BHMS, Narayan Shree Homoeopathic Medical College, Bhopal</p>
+  </div>
+</footer>
+
+<script>
+// Loader
+window.addEventListener('load', () => {
+  const fill = document.getElementById('loaderFill');
+  fill.style.width = '100%';
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hide');
+  }, 2500);
+});
+
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  cursor.style.left = mouseX + 'px';
+  cursor.style.top = mouseY + 'px';
+});
+function animateRing() {
+  ringX += (mouseX - ringX) * 0.12;
+  ringY += (mouseY - ringY) * 0.12;
+  ring.style.left = ringX + 'px';
+  ring.style.top = ringY + 'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+document.querySelectorAll('a,button,.service-card,.testimonial-card,.highlight-card').forEach(el => {
+  el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+  el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+});
+
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Particles
+const particlesContainer = document.getElementById('particles');
+for (let i = 0; i < 30; i++) {
+  const p = document.createElement('div');
+  p.className = 'particle';
+  p.style.left = Math.random() * 100 + '%';
+  p.style.width = (Math.random() * 2 + 1) + 'px';
+  p.style.height = p.style.width;
+  p.style.animationDuration = (Math.random() * 15 + 10) + 's';
+  p.style.animationDelay = (Math.random() * 10) + 's';
+  p.style.opacity = Math.random() * 0.6;
+  particlesContainer.appendChild(p);
+}
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.12 });
+reveals.forEach(r => observer.observe(r));
+
+// Counter animation
+function animateCounter(el, target) {
+  let current = 0;
+  const step = target / 60;
+  const timer = setInterval(() => {
+    current = Math.min(current + step, target);
+    el.textContent = Math.floor(current);
+    if (current >= target) clearInterval(timer);
+  }, 25);
+}
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      animateCounter(e.target, parseInt(e.target.dataset.target));
+      counterObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.counter').forEach(c => counterObserver.observe(c));
+
+// FAQ
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Form submit
+function handleSubmit(btn) {
+  btn.textContent = '✓ Enquiry sent — we will call you shortly';
+  btn.style.background = 'var(--sage2)';
+  btn.disabled = true;
+}
+
+// Theme toggle
+function setTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  document.body.style.background = t === 'light' ? '#f5f1e8' : '#0d0f0e';
+  document.body.style.color = t === 'light' ? '#1a1d1b' : '#e8e4da';
+  document.querySelectorAll('.tt-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('.tt-btn[onclick*="' + t + '"]').classList.add('active');
+}
+
+// Mobile menu (simple scroll to links)
+function toggleMobileMenu() {
+  const links = document.querySelector('.nav-links');
+  links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+  links.style.flexDirection = 'column';
+  links.style.position = 'fixed';
+  links.style.top = '70px';
+  links.style.left = '0';
+  links.style.right = '0';
+  links.style.background = 'rgba(13,15,14,.97)';
+  links.style.padding = '2rem';
+  links.style.gap = '1.5rem';
+  links.style.borderBottom = '1px solid rgba(255,255,255,.06)';
+  links.style.backdropFilter = 'blur(20px)';
+  links.style.zIndex = '99';
+}
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.querySelector('.nav-links').style.display = 'none';
+  });
+});
+</script>
+</body>
+</html>
